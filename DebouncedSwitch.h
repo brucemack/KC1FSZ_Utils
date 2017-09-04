@@ -1,3 +1,6 @@
+/**
+Copyright (c) 2017 Bruce MacKinnon, KC1FSZ
+*/
 #ifndef _DebouncedSwitch_h
 #define _DebouncedSwitch_h
 

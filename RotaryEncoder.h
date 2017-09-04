@@ -1,3 +1,6 @@
+/**
+Copyright (c) 2017 Bruce MacKinnon, KC1FSZ
+*/
 #ifndef _RotaryEncoder_h
 #define _RotaryEncoder_h
 
