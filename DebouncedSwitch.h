@@ -4,7 +4,9 @@
 #include <Switch.h>
 
 /**
-  A class for implementing a debounce of a potentially noisy switch.
+A class for implementing a debounce of a potentially noisy switch.
+
+Bruce MacKinnon KC1FSZ
 */
 class DebouncedSwitch : public Switch {
 

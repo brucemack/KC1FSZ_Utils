@@ -33,7 +33,6 @@ public:
       }
     }
     lastState = state;
-
     return result;
   }
 
