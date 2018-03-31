@@ -14,19 +14,19 @@ class RotaryEncoder {
 
 public:
 
-  RotaryEncoder(Switch* switchLeft,Switch* switchRight) {
+  RotaryEncoder(Switch* switchLeft,Switch* switchRight,unsigned long fastInterval) {
     _switchLeft = switchLeft;
     _switchRight = switchRight;
     _idle = true;
+    _fastInterval = fastInterval;
     _lastChange = millis();
-    _fastInterval = 150;
   }
 
   long getIncrement() {
 
     long result = 0;
-    long now = millis();
-    long d = now - _lastChange;
+    unsigned long now = millis();
+    unsigned long d = now - _lastChange;
 
     if (_idle) {
       if (_switchLeft->getState() &&
@@ -60,11 +60,13 @@ private:
   Switch* _switchLeft;
   Switch* _switchRight;
   boolean _idle;
-  long _lastChange;
-  long _fastInterval;
+  unsigned long _lastChange;
+  unsigned long _fastInterval;
 
-  long getSlewMultiplier(long msBetween) {
-    if (msBetween < _fastInterval) {
+  long getSlewMultiplier(unsigned long msBetween) {
+    if (msBetween < (_fastInterval / 2)) {
+      return 4;
+    } else if (msBetween < _fastInterval) {
       return 2;
     } else {
       return 1;
