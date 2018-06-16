@@ -84,7 +84,7 @@ void VSWRMeterState::sampleIfNecessary(unsigned long now) {
     // Compute the return loss (db)
     //float rldb = 20.0 * log10(1.0 / gama);
     // Compute the VSWR
-    vswr = (1.0 + gama) / (1.0 - gama);
+    vswr = abs((1.0 + gama) / (1.0 - gama));
     // Forward power - this is based on the assumption that the bridge transformers are 12:1
     pwrFwd = ((avgF * avgF) / 100.0) / 0.0069;
     outputReady = true;
